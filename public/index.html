@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Shop - Cửa hàng trực tuyến</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-top">
+                <h1 class="logo">🛍️ Online Shop</h1>
+                <div class="header-right">
+                    <input type="text" id="searchInput" class="search-box" placeholder="Tìm kiếm sản phẩm...">
+                    <a href="#cart" class="cart-link">
+                        🛒 Giỏ hàng <span id="cartCount" class="badge">0</span>
+                    </a>
+                    <a href="admin.html" class="admin-link">⚙️ Admin</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Products Section -->
+        <section class="products-section">
+            <h2>Sản phẩm nổi bật</h2>
+            <div class="products-grid" id="productsGrid">
+                <!-- Sản phẩm sẽ được load tại đây -->
+            </div>
+        </section>
+
+        <!-- Cart Section -->
+        <section id="cart" class="cart-section hidden">
+            <h2>Giỏ hàng của bạn</h2>
+            <div id="cartItems" class="cart-items">
+                <!-- Sản phẩm trong giỏ sẽ được hiển thị tại đây -->
+            </div>
+            <div class="cart-summary">
+                <p>Tổng cộng: <strong id="cartTotal">0 ₫</strong></p>
+                <button id="checkoutBtn" class="btn btn-primary">Thanh toán</button>
+                <button onclick="closeSectionCart()" class="btn btn-secondary">Tiếp tục mua</button>
+            </div>
+        </section>
+
+        <!-- Checkout Section -->
+        <section id="checkout" class="checkout-section hidden">
+            <h2>Thông tin thanh toán</h2>
+            <form id="checkoutForm" class="checkout-form">
+                <div class="form-group">
+                    <label>Họ và tên</label>
+                    <input type="text" id="customerName" required>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="customerEmail" required>
+                </div>
+                <div class="form-group">
+                    <label>Số điện thoại</label>
+                    <input type="tel" id="customerPhone" required>
+                </div>
+                <div class="form-group">
+                    <label>Địa chỉ giao hàng</label>
+                    <textarea id="customerAddress" required></textarea>
+                </div>
+                <div class="order-summary">
+                    <h3>Tóm tắt đơn hàng</h3>
+                    <div id="orderItems"></div>
+                    <p class="order-total">Tổng: <strong id="orderTotal">0 ₫</strong></p>
+                </div>
+                <button type="submit" class="btn btn-primary btn-large">Đặt hàng</button>
+                <button type="button" onclick="backToCart()" class="btn btn-secondary">Quay lại</button>
+            </form>
+        </section>
+
+        <!-- Order Success -->
+        <section id="success" class="success-section hidden">
+            <div class="success-message">
+                <h2>✅ Đặt hàng thành công!</h2>
+                <p>Cảm ơn bạn đã mua hàng!</p>
+                <p>Mã đơn hàng của bạn: <strong id="orderId"></strong></p>
+                <p>Chúng tôi sẽ liên hệ với bạn sớm nhất.</p>
+                <button onclick="location.reload()" class="btn btn-primary">Quay về trang chủ</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Online Shop. Tất cả quyền được bảo lưu.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
